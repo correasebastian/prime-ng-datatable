@@ -7,13 +7,13 @@ import '../../node_modules/primeng/resources/primeng.min.css';
 import '../../node_modules/font-awesome/css/font-awesome.min.css';
 
 class PrimeCar implements Car {
-    constructor(public vin?, public year?, public brand?, public color?) {}
+    constructor(public vin?, public year?, public brand?, public color?) { }
 }
 
 @Component({
-  selector: 'my-app',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+    selector: 'my-app',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
 
@@ -40,10 +40,13 @@ export class AppComponent {
     }
 
     save() {
-        if(this.newCar)
+        if (this.newCar) {
+
             this.cars.push(this.car);
-        else
+        }else {
             this.cars[this.findSelectedCarIndex()] = this.car;
+
+        }
 
         this.car = null;
         this.displayDialog = false;
@@ -63,13 +66,20 @@ export class AppComponent {
 
     cloneCar(c: Car): Car {
         let car = new PrimeCar();
-        for(let prop in c) {
-            car[prop] = c[prop];
+        for (let prop in c) {
+            if (c.hasOwnProperty(prop)) {
+                car[prop] = c[prop];
+                // code here
+            }
         }
         return car;
     }
 
     findSelectedCarIndex(): number {
         return this.cars.indexOf(this.selectedCar);
+    }
+
+    selectCar(car: Car) {
+        console.log(car);
     }
 }
