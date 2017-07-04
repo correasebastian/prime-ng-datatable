@@ -82,4 +82,12 @@ export class AppComponent {
     selectCar(car: Car) {
         console.log(car);
     }
+
+    onRowExpand(event){
+        console.log('****** on row expanded');
+        console.log(event);
+        let car: Car = event.data;
+        // this is going to simulate the call to the backend, and will add the order details 
+        car.orderDetail = Math.floor((Math.random() * 100) + 1);
+    }
 }

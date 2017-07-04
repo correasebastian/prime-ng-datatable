@@ -1,6 +1,6 @@
 
 
-<p-dataTable [value]="cars" expandableRows="true" rowExpandMode="single" [paginator]="true" [rows]="7">
+<p-dataTable [value]="cars" expandableRows="true" rowExpandMode="single" [paginator]="true" [rows]="7" (onRowExpand)="onRowExpand($event)">
     <p-column expander="true" [style]="{'width':'40px'}"></p-column>
     <p-column field="vin" header="Vin" [sortable]="true"></p-column>
     <p-column field="year" header="Year" [sortable]="true"></p-column>
@@ -34,6 +34,10 @@
                         <div class="ui-grid-row">
                             <div class="ui-grid-col-2 label">Color: </div>
                             <div class="ui-grid-col-10">{{car.color}}</div>
+                        </div>
+                        <div class="ui-grid-row">
+                            <div class="ui-grid-col-2 label">Order detail: </div>
+                            <div class="ui-grid-col-10">{{car.orderDetail}}</div>
                         </div>
                     </div>
                 </div>
