@@ -83,7 +83,7 @@ export class AppComponent {
         console.log(car);
     }
 
-    onRowExpand(event){
+    onRowExpand(event) {
         console.log('****** on row expanded');
         console.log(event);
         let car: Car = event.data;
