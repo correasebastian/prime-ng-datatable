@@ -8,6 +8,7 @@ import 'rxjs/add/operator/toPromise';
 import { AppComponent } from './app.component';
 import { CarService } from './cars/carservice';
 import { InputTextModule, DataTableModule, ButtonModule, DialogModule } from 'primeng/primeng';
+import { SimpleComponent } from './simple/simple.component';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import { InputTextModule, DataTableModule, ButtonModule, DialogModule } from 'pr
     DialogModule
   ],
   declarations: [
-    AppComponent
+    AppComponent,
+    SimpleComponent
   ],
   bootstrap: [ AppComponent ],
   providers: [ CarService ]
